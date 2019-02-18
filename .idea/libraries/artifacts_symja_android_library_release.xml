@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="artifacts:symja_android_library-release">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/symja_android_library-release.aar/08a60c4b8c7f6f46799551716783fd5a/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/symja_android_library-release.aar/08a60c4b8c7f6f46799551716783fd5a/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

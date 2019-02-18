@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2017 Tran Le Duy
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.duy.calculatorsgh">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" tools:node="remove"/>
+
+
+
+    <uses-sdk
+        tools:overrideLibrary="co.ronash.pushe" />
+    <permission
+        android:name="com.saeedsoft.calculatorsgh.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission
+        android:name="com.saeedsoft.calculatorsgh.permission.C2D_MESSAGE" />
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <!-- Optional permissions -->
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+
+
+    <application
+        android:name="com.duy.calculatorsgh.CalcApplication"
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppThemeLight">
+
+        <activity
+            android:name="com.duy.calculatorsgh.calc.BasicCalculatorActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.APP_CALCULATOR" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.duy.calculatorsgh.converter.UnitCategoryActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:label="@string/title_activity_unit_converter_acitvity"
+
+            android:launchMode="singleTask" />
+        <activity android:name="com.duy.calculatorsgh.converter.ConverterActivity" />
+        <activity
+            android:name="com.duy.calculatorsgh.settings.SettingsActivity"
+            android:label="@string/title_activity_settings"
+
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.duy.calculatorsgh.geom2d.GeometryDescartesActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+
+            android:label="@string/title_activity_geometry"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.duy.calculatorsgh.calc.LogicCalculatorActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name="com.duy.calculatorsgh.matrix.MatrixCalculatorActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:label="@string/title_activity_matrix_calculator"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.duy.calculatorsgh.activities.SolveEquationActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.duy.calculatorsgh.activities.SimplifyEquationActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.duy.calculatorsgh.activities.FactorExpressionActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.duy.calculatorsgh.activities.DerivativeActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.duy.calculatorsgh.deprecated.StatisticActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.duy.calculatorsgh.activities.ExpandAllExpressionActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name="com.duy.calculatorsgh.graph.GraphActivity"
+            android:label="@string/title_activity_graph" />
+        <activity
+            android:name="com.duy.calculatorsgh.graph.GraphAddFunction"
+            android:label="@string/add_function"
+
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name="com.duy.calculatorsgh.history.HistoryActivity"
+            android:label="@string/history"
+
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.duy.calculatorsgh.equations.SystemEquationActivity"
+            android:label="@string/solve_system_equation"
+
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.duy.calculatorsgh.define.DefineVariableActivity"
+            android:label="@string/define_var"
+
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.duy.calculatorsgh.activities.LimitActivity"
+            android:label="@string/limit"
+
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.duy.calculatorsgh.activities.IntegrateActivity"
+            android:label="@string/integrate"
+
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.duy.calculatorsgh.activities.PrimitiveActivity"
+            android:label="@string/primitive"
+
+            android:launchMode="singleTask" />
+        <activity android:name="com.duy.calculatorsgh.document.activities.InfoActivity" />
+        <activity
+            android:name="com.duy.calculatorsgh.number.FactorPrimeActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.duy.calculatorsgh.number.PermutationActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.duy.calculatorsgh.number.ModuleActivity"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name="com.duy.calculatorsgh.trigonometry.TrigActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.duy.calculatorsgh.number.NumberActivity"
+            android:launchMode="singleTask" />
+        <activity android:name="com.duy.calculatorsgh.document.activities.DocumentActivity" />
+        <activity android:name="com.duy.calculatorsgh.number.PiActivity" />
+
+
+
+
+        <receiver android:name="co.ronash.pushe.receiver.UpdateReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+
+                <data
+                    android:path="com.saeedsoft.calculatorsgh"
+                    android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.saeedsoft.calculatorsgh" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data android:name="co.ronash.pushe.token" android:value="PUSHE_437867742670"/>
+        <meta-data android:name="co.ronash.pushe.cr" android:value="Tm9uZQ=="/>
+
+
+        <service
+            android:name="com.duy.calculatorsgh.MyPushListener"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="co.ronash.pushe.RECEIVE" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

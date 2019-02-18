@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="40dp"
+    tools:context="com.duy.calculatorsgh.Dialog">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/rounded_lig">
+
+        <TextView
+            android:id="@+id/tvTitlePush"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#00000000"
+            android:gravity="center"
+            android:text="Title"
+            android:textColor="#000"
+            android:textSize="26dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivLogoPush"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/tvTitlePush"
+            android:layout_centerHorizontal="true"
+            android:background="#00000000" />
+
+        <TextView
+            android:id="@+id/tvDescPush"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivLogoPush"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#00000000"
+            android:gravity="top|center"
+            android:lineSpacingExtra="10dp"
+            android:paddingTop="10dp"
+            android:text="Description"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivBanerPush"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvDescPush"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:background="#00000000" />
+
+        <Button
+            android:id="@+id/btnClickPush"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#C04C42"
+            android:onClick="OpenLink"
+            android:text="Buttun"
+            android:textColor="#fff"
+            android:textSize="26dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

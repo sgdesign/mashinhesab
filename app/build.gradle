@@ -1,0 +1,96 @@
+/*
+ * Copyright 2017 Tran Le Duy
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+apply plugin: 'com.android.application'
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.saeedsoft.calculatorsgh"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+        multiDexEnabled true
+    }
+    signingConfigs {
+        release
+    }
+    setupSigningConfig()
+    buildTypes {
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+        disable 'MissingTranslation'
+    }
+}
+
+
+@SuppressWarnings("GrUnresolvedAccess")
+def setupSigningConfig() {
+    Properties props = new Properties()
+    def propFile = new File('signing.properties')
+    if (propFile.canRead()) {
+        props.load(new FileInputStream(propFile))
+        android.signingConfigs.release.storeFile = file(props['RELEASE_STORE_FILE'])
+        android.signingConfigs.release.storePassword = props['RELEASE_STORE_PASSWORD']
+        android.signingConfigs.release.keyAlias = props['RELEASE_KEY_ALIAS']
+        android.signingConfigs.release.keyPassword = props['RELEASE_KEY_PASSWORD']
+    } else {
+        android.buildTypes.release.signingConfig = null
+  //      throw new GradleException('signing.properties not found')
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+
+    api project(':symja_android_library-release')
+    implementation 'co.ronash.android:pushe-base:1.4.3'
+    api "com.android.support:appcompat-v7:$androidSupportVersion"
+    api "com.android.support:support-annotations:$androidSupportVersion"
+    api "com.android.support:support-v4:$androidSupportVersion"
+    api "com.android.support:design:$androidSupportVersion"
+    api "com.android.support:cardview-v7:$androidSupportVersion"
+    api "com.android.support:recyclerview-v7:$androidSupportVersion"
+    api 'com.android.support:multidex:1.0.2'
+
+    api 'io.github.kexanie.library:MathView:0.0.4'
+    api 'com.github.PhilJay:MPAndroidChart:v3.0.0-beta1'
+    api 'com.getkeepsafe.taptargetview:taptargetview:1.6.0'
+
+    api 'io.github.kobakei:ratethisapp:1.2.0'
+    api 'com.sothree.slidinguppanel:library:3.4.0'
+    api 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    api 'com.github.mukeshsolanki:MarkdownView-Android:1.0.4'
+    api 'com.miguelcatalan:materialsearchview:1.4.0'
+}
